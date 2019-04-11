@@ -1,4 +1,4 @@
-const db = reauire('../database/dbConfig');
+const db = require('../database/dbConfig');
 
 module.exports = {
     insert,

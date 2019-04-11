@@ -6,8 +6,10 @@ const server = express();
 
 server.use(express.json());
 
+server.use('/api/dogs', dogsRouter);
+
 server.get('/', (req, res) => {
     res.send('server is working');
 })
 
-module.export = server;
+module.exports = server;

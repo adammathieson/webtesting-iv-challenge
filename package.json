@@ -4,8 +4,9 @@
 	"description": "Server Testing Project",
 	"main": "server.js",
 	"scripts": {
-		"start": "nodemon",
-		"test": "jest --watch --verbose"
+		"server": "nodemon",
+		"test": "cross-env DB_ENV=testing jest --watch",
+		"start": "node"
 	},
 	"jest": {
 		"testEnvironment": "node"

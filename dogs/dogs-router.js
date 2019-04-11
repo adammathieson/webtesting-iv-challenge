@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-const Dogs = require('../dogs/dogs-model');
+const Dogs = require('./dogs-model');
 
 router.get('/', (req, res) => {
     Dogs
-        .find()
+        .getAll()
         .then(dogs => {
             res.status(200).json(dogs)
         })
