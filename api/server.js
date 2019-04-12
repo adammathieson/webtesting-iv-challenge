@@ -24,29 +24,20 @@ server.get('/dogs', (req, res) => {
 });
 
 server.post('/dogs', (req, res) => {
-    let dog = req.body;
+    let { name } = req.body;
+    if(!name) {
+        res.status(422).json({ message: 'Please include name' })
+    }
 
     Dogs
-        .insert(dog)
+        .insert({ name })
         .then(dog => {
-            res.status(200).json(dog);
+            res.status(201).json(dog);
         })
         .catch(err => {
             res.status(500).json(err);
         })
 })
-server.delete('/dogs/:id', (req, res) => {
-    const { id } = req.body;
 
-    Dogs
-        .remove(id)
-        .then(dog => {
-            res.status(202).json({ message: `dog ${id} has been removed` })
-        })
-        .catch(err => {
-            res.status(500).json(err)
-        })
-
-})
 
 module.exports = server;
